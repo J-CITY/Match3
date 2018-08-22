@@ -70,8 +70,7 @@ namespace Match3 {
 			if (mouseClick == 1) {
 				cell1Pos = new Vector2(mousePos.X / cellSize,
 					mousePos.Y / cellSize);
-			}
-			if (mouseClick == 2) {
+			} else if (mouseClick == 2) {
 				cell2Pos = new Vector2(mousePos.X / cellSize,
 					mousePos.Y / cellSize);
 				var _x = Math.Abs((int)cell2Pos.X - (int)cell1Pos.X);
@@ -86,6 +85,8 @@ namespace Match3 {
 					cell1Pos = new Vector2(0, 0);
 					cell2Pos = new Vector2(0, 0);
 				}
+			} else {
+				mouseClick = 0;
 			}
 		}
 

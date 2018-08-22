@@ -56,12 +56,14 @@ namespace Match3 {
 		}
 
 		protected override void Update(GameTime gameTime) {
-			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape))
+			if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState().IsKeyDown(Keys.Escape)) {
 				Exit();
+			}
 
 			MouseState newState = Mouse.GetState();
-			if (newState.LeftButton == ButtonState.Pressed && oldState.LeftButton == ButtonState.Released)
+			if (newState.LeftButton == ButtonState.Pressed && oldState.LeftButton == ButtonState.Released) {
 				screens.Peek().MouseClick(new Vector2(newState.X, newState.Y));
+			}
 			oldState = newState;
 			var delta = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 			screens.Peek().Update(delta);
