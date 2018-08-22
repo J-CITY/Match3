@@ -79,6 +79,8 @@ namespace Match3 {
 			typeBonus = tb;
 			if (typeBonus != TypeBonus.Normal) {
 				offset = new Vector2(8, 8);
+			} else {
+				offset = new Vector2(3, 3);
 			}
 		}
 	}
