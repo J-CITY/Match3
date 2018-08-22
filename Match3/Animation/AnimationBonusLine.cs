@@ -37,12 +37,12 @@ namespace Match3 {
 			if (f >= frames.Count) {
 				f = frames.Count - 1;
 			}
-			pos1 = moveQuadratic(from, to1, speed, timeStart);
-			pos2 = moveQuadratic(from, to2, speed, timeStart);
+			pos1 = MoveQuadratic(from, to1, speed, timeStart);
+			pos2 = MoveQuadratic(from, to2, speed, timeStart);
 			Frame = frames[f];
 		}
 
-		private Vector2 moveQuadratic(Vector2 X0, Vector2 X1, float T, float t) {
+		private Vector2 MoveQuadratic(Vector2 X0, Vector2 X1, float T, float t) {
 			var f = t / T;
 			if (f < 0) { f = 0f; isDone = true; }
 			if (f > 1) { f = 1f; isDone = true; }

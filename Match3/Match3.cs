@@ -234,28 +234,28 @@ namespace Match3 {
 							map[x + i, y + j].Match = true;
 							ApplyBonusAnimation(x + i, y + j);
 							ApplyMatchAnimation(x + i, y + j);
-							ApplyBonus(x + i, y + j, map[x + i, y + j].TypeBonus);
+							//ApplyBonus(x + i, y + j, map[x + i, y + j].TypeBonus);
 						}
 					}
 				}
 			} else if (type == TypeBonus.Hline) {
-				for (int i = 1; i <= ColSize-2; ++i) {
-					if (map[i, y] != null && !map[i, y].Match) {
-						map[i, y].Match = true;
-						ApplyBonusAnimation(i, y);
-						ApplyMatchAnimation(i, y);
-						ApplyBonus(i, y, map[i, y].TypeBonus);
-					}
-				}
+				//for (int i = 1; i <= ColSize-2; ++i) {
+				//	if (map[i, y] != null && !map[i, y].Match) {
+				//		map[i, y].Match = true;
+				//		ApplyBonusAnimation(i, y);
+				//		ApplyMatchAnimation(i, y);
+				//		//ApplyBonus(i, y, map[i, y].TypeBonus);
+				//	}
+				//}
 			} else if (type == TypeBonus.Vline) {
-				for (int i = 1; i <= RowSize-2; ++i) {
-					if (map[x, i] != null && !map[x, i].Match) {
-						map[x, i].Match = true;
-						ApplyBonusAnimation(x, i);
-						ApplyMatchAnimation(x, i);
-						ApplyBonus(x, i, map[x, i].TypeBonus);
-					}
-				}
+					//for (int i = 1; i <= RowSize-2; ++i) {
+					//	if (map[x, i] != null && !map[x, i].Match) {
+					//		map[x, i].Match = true;
+					//		ApplyBonusAnimation(x, i);
+					//		ApplyMatchAnimation(x, i);
+					//		//ApplyBonus(x, i, map[x, i].TypeBonus);
+					//	}
+					//}
 			}
 		}
 		
@@ -272,18 +272,18 @@ namespace Match3 {
 					map[i, j].animationBonus = new AnimationBonusLine(new Vector2(map[i, j].Col * Cell.cellSize,
 						map[i, j].Row * Cell.cellSize),
 						new Vector2(Cell.cellSize, map[i, j].Row * Cell.cellSize),
-						new Vector2(Cell.cellSize * 8, map[i, j].Row * Cell.cellSize));
-					map[i, j].animationBonus.Delay = delay;
-					delay += 250;
+						new Vector2(Cell.cellSize * (Match3.ColSize-1), map[i, j].Row * Cell.cellSize));
+					map[i, j].animationBonus.Delay = 100;
+					//delay += 250;
 					break;
 				}
 				case TypeBonus.Vline: {
 					map[i, j].animationBonus = new AnimationBonusLine(new Vector2(map[i, j].Col * Cell.cellSize,
 						map[i, j].Row * Cell.cellSize),
 						new Vector2(map[i, j].Col * Cell.cellSize, Cell.cellSize),
-						new Vector2(map[i, j].Col * Cell.cellSize, Cell.cellSize * 8));
-					map[i, j].animationBonus.Delay = delay;
-					delay += 250;
+						new Vector2(map[i, j].Col * Cell.cellSize, Cell.cellSize * (Match3.RowSize - 1)));
+					map[i, j].animationBonus.Delay = 100;
+					//delay += 250;
 					break;
 				}
 			}
@@ -310,9 +310,9 @@ namespace Match3 {
 					int vCount = 0, hCount = 0;
 					HashSet<Vector2> matchItems = new HashSet<Vector2>();
 
-					if (map[i, j] != null && map[i, j].Match) {
-						continue;
-					}
+					//if (map[i, j] != null && map[i, j].Match) {
+					//	continue;
+					//}
 
 					if (map[i, j]?.Type == map[i + 1, j]?.Type) {
 						if (map[i, j]?.Type == map[i - 1, j]?.Type) {
@@ -320,7 +320,7 @@ namespace Match3 {
 							matchItems.Add(new Vector2(map[i, j].Col, map[i, j].Row));
 							hCount++;
 							if (map[i, j].TypeBonus != TypeBonus.Normal) {
-								ApplyBonus(i, j, map[i, j].TypeBonus);
+								//ApplyBonus(i, j, map[i, j].TypeBonus);
 								ApplyBonusAnimation(i, j);
 							}
 							ApplyMatchAnimation(i, j);
@@ -332,7 +332,7 @@ namespace Match3 {
 								matchItems.Add(new Vector2(map[n, j].Col, map[n, j].Row));
 
 								if (map[n, j].TypeBonus != TypeBonus.Normal) {
-									ApplyBonus(n, j, map[n, j].TypeBonus);
+									//ApplyBonus(n, j, map[n, j].TypeBonus);
 									ApplyBonusAnimation(n, j);
 								}
 								ApplyMatchAnimation(n, j);
@@ -345,7 +345,7 @@ namespace Match3 {
 								matchItems.Add(new Vector2(map[n, j].Col, map[n, j].Row));
 
 								if (map[n, j].TypeBonus != TypeBonus.Normal) {
-									ApplyBonus(n, j, map[n, j].TypeBonus);
+									//ApplyBonus(n, j, map[n, j].TypeBonus);
 									ApplyBonusAnimation(n, j);
 								}
 								ApplyMatchAnimation(n, j);
@@ -360,7 +360,7 @@ namespace Match3 {
 							matchItems.Add(new Vector2(map[i, j].Col, map[i, j].Row));
 
 							if (map[i, j].TypeBonus != TypeBonus.Normal) {
-								ApplyBonus(i, j, map[i, j].TypeBonus);
+								//ApplyBonus(i, j, map[i, j].TypeBonus);
 								ApplyBonusAnimation(i, j);
 							}
 							ApplyMatchAnimation(i, j);
@@ -373,7 +373,7 @@ namespace Match3 {
 								matchItems.Add(new Vector2(map[i, n].Col, map[i, n].Row));
 
 								if (map[i, n].TypeBonus != TypeBonus.Normal) {
-									ApplyBonus(i, n, map[i, n].TypeBonus);
+									//ApplyBonus(i, n, map[i, n].TypeBonus);
 									ApplyBonusAnimation(i, n);
 								}
 								ApplyMatchAnimation(i, n);
@@ -387,7 +387,7 @@ namespace Match3 {
 								matchItems.Add(new Vector2(map[i, n].Col, map[i, n].Row));
 
 								if (map[i, n].TypeBonus != TypeBonus.Normal) {
-									ApplyBonus(i, n, map[i, n].TypeBonus);
+									//ApplyBonus(i, n, map[i, n].TypeBonus);
 									ApplyBonusAnimation(i, n);
 								}
 								ApplyMatchAnimation(i, n);
@@ -422,13 +422,20 @@ namespace Match3 {
 			
 			ApplyBonusAnimation(x, y);
 			ApplyMatchAnimation(x, y);
-			ApplyBonus(x, y, map[x, y].TypeBonus);
+			//ApplyBonus(x, y, map[x, y].TypeBonus);
 		}
 
+		private void Apply(int x, int y) {
+			if (map[x, y] != null && !map[x, y].Match) {
+				map[x, y].Match = true;
+				ApplyBonusAnimation(x, y);
+				ApplyMatchAnimation(x, y);
+			}
+		}
 
 		private void AnimationStep(float time) {
 			isMove = false;
-			bool isM = false;
+			bool isMoveCell = false;
 			for (int i = 1; i <= 8; i++) {
 				for (int j = 1; j <= 8; j++) {
 					if (map[i, j].move != null) {
@@ -436,7 +443,7 @@ namespace Match3 {
 						map[i, j].Position = res;
 						if (!map[i, j].move.IsAllDone) {
 							isMove = true;
-							isM = true;
+							isMoveCell = true;
 
 						} else {
 							map[i, j].move = null;
@@ -445,7 +452,7 @@ namespace Match3 {
 				}
 			}
 
-			if (isM) {
+			if (isMoveCell) {
 				return;
 			}
 
@@ -458,9 +465,19 @@ namespace Match3 {
 						if (!map[i, j].animationBonus.isDone) {
 							isMove = true;
 							isBonus = true;
-
+							if (map[i, j].TypeBonus == TypeBonus.Hline || map[i, j].TypeBonus == TypeBonus.Vline) {
+								var a = (AnimationBonusLine)(map[i, j].animationBonus);
+								var p1 = a.pos1;
+								Apply((int)(p1.X / Cell.cellSize), (int)(p1.Y / Cell.cellSize));
+								var p2 = a.pos2;
+								Apply((int)(p2.X / Cell.cellSize), (int)(p2.Y / Cell.cellSize));
+							}
 						} else {
+							if (map[i, j].TypeBonus == TypeBonus.Bomb) {
+								ApplyBonus(i, j, map[i, j].TypeBonus);
+							}
 							map[i, j].animationBonus = null;
+
 						}
 					}
 				}
