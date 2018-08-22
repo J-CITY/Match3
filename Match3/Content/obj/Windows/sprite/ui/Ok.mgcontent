@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <SourceFile>D:/projects/VisualStudio/Match3/Match3/Content/sprite/ui/Ok.png</SourceFile>
+  <SourceFile>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/ui/Ok.png</SourceFile>
   <SourceTime>2018-08-20T15:20:53.3973052+10:00</SourceTime>
-  <DestFile>D:/projects/VisualStudio/Match3/Match3/Content/bin/Windows/sprite/ui/Ok.xnb</DestFile>
-  <DestTime>2018-08-20T15:22:11.2474524+10:00</DestTime>
+  <DestFile>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/bin/Windows/sprite/ui/Ok.xnb</DestFile>
+  <DestTime>2018-08-22T16:02:05.7597439+10:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2017-03-02T01:05:36+10:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

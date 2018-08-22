@@ -50,8 +50,7 @@ namespace Match3 {
 					c.Position = new Microsoft.Xna.Framework.Vector2(i * Cell.cellSize, j * Cell.cellSize);
 					c.Col = i;
 					c.Row = j;
-					c.Type = GetRandomCellType();
-					c.TypeBonus = GetRandomCellTypeBonus();
+					c.SetType(GetRandomCellType(), GetRandomCellTypeBonus());
 					map[i, j] = c;
 				}
 			}
@@ -186,9 +185,8 @@ namespace Match3 {
 					int n = 1;
 					for (int i = RowSize-2; i > 0; i--) {
 						if (map[j, i].Match) {
-							map[j, i].Type = GetRandomCellType();
-							map[j, i].TypeBonus = GetRandomCellTypeBonus();
 							map[j, i].Position = new Vector2(j * Cell.cellSize, 0);
+							map[j, i].SetType(GetRandomCellType(), GetRandomCellTypeBonus());
 
 							map[j, i].Col = j;
 							map[j, i].Row = i;
@@ -418,7 +416,8 @@ namespace Match3 {
 				y = (int)(cell2Pos.Y);
 			}
 
-			map[x, y].TypeBonus = type;
+			map[x, y].SetType(map[x, y].Type, type);
+			
 			ApplyBonusAnimation(x, y);
 			ApplyMatchAnimation(x, y);
 			ApplyBonus(x, y, map[x, y].TypeBonus);

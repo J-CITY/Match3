@@ -73,5 +73,13 @@ namespace Match3 {
 			match = false;
 			offset = new Vector2(3, 3);
 		}
+
+		public void SetType(Type t, TypeBonus tb) {
+			type = t;
+			typeBonus = tb;
+			if (typeBonus != TypeBonus.Normal) {
+				offset = new Vector2(8, 8);
+			}
+		}
 	}
 }

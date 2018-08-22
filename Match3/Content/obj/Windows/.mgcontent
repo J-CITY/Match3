@@ -4,20 +4,20 @@
   <Platform>Windows</Platform>
   <Config />
   <SourceFiles>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/bg/bg1.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/bg/bg2.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/cell/cell1.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/cell/cell2.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/cell/cell3.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/cell/cell4.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/cell/cell5.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/cell/cell6.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/cell/cellActive.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/jellys/12.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/jellys/Jelly.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/jellys/BonusEffect.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/Font.spritefont</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/ui/Ok.png</File>
-    <File>D:/projects/VisualStudio/Match3/Match3/Content/sprite/ui/Play.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/bg/bg1.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/bg/bg2.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/cell/cell1.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/cell/cell2.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/cell/cell3.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/cell/cell4.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/cell/cell5.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/cell/cell6.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/cell/cellActive.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/jellys/12.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/jellys/Jelly.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/jellys/BonusEffect.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/Font.spritefont</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/ui/Ok.png</File>
+    <File>C:/Users/333da/Desktop/Match3/Match3/Match3/Content/sprite/ui/Play.png</File>
   </SourceFiles>
 </SourceFileCollection>
