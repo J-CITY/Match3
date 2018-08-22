@@ -293,7 +293,8 @@ namespace Match3 {
 			if (map[i, j].delmove == null && map[i, j].alpha == null) {
 				List<AnimationStep> _steps3 = new List<AnimationStep>();
 				var posTo3 = new Vector2(Game1.screenWidth - 10, 10);
-				_steps3.Add(new AnimationStep(map[i, j].Position, posTo3, 1000f, AnimationType.eCubic));
+				_steps3.Add(new AnimationStep(new Vector2(map[i, j].Col * Cell.cellSize, 
+					map[i, j].Row * Cell.cellSize), posTo3, 1000f, AnimationType.eCubic));
 				map[i, j].delmove = new Animation(_steps3);
 				List<AnimationStep> _steps4 = new List<AnimationStep>();
 				var posTo4 = new Vector2(0, 0);
