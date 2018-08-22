@@ -10,7 +10,6 @@ namespace Match3 {
 	class Match3 {
 		public static int ColSize = 10;
 		public static int RowSize = 10;
-		public static int cellSize = Cell.cellSize;
 
 		private int gameScore = 0;
 		public int GameScore {
@@ -47,7 +46,7 @@ namespace Match3 {
 			for (int i = 1; i < ColSize - 1; i++) {
 				for (int j = 1; j < RowSize - 1; j++) {
 					Cell c = new Cell();
-					c.Position = new Microsoft.Xna.Framework.Vector2(i * Cell.cellSize, j * Cell.cellSize);
+					c.Position = new Microsoft.Xna.Framework.Vector2(i * Cell.CellSize, j * Cell.CellSize);
 					c.Col = i;
 					c.Row = j;
 					c.SetType(GetRandomCellType(), GetRandomCellTypeBonus());
@@ -62,17 +61,17 @@ namespace Match3 {
 			}
 			mousePos = pos;
 
-			if ((int)(mousePos.X / cellSize) >= ColSize-1 || (int)(mousePos.X / cellSize) < 1 ||
-				(int)(mousePos.Y / cellSize) >= RowSize-1 || (int)(mousePos.Y / cellSize) < 1) {
+			if ((int)(mousePos.X / Cell.CellSize) >= ColSize-1 || (int)(mousePos.X / Cell.CellSize) < 1 ||
+				(int)(mousePos.Y / Cell.CellSize) >= RowSize-1 || (int)(mousePos.Y / Cell.CellSize) < 1) {
 				return;
 			}
 
 			if (mouseClick == 1) {
-				cell1Pos = new Vector2(mousePos.X / cellSize,
-					mousePos.Y / cellSize);
+				cell1Pos = new Vector2(mousePos.X / Cell.CellSize,
+					mousePos.Y / Cell.CellSize);
 			} else if (mouseClick == 2) {
-				cell2Pos = new Vector2(mousePos.X / cellSize,
-					mousePos.Y / cellSize);
+				cell2Pos = new Vector2(mousePos.X / Cell.CellSize,
+					mousePos.Y / Cell.CellSize);
 				var _x = Math.Abs((int)cell2Pos.X - (int)cell1Pos.X);
 				var _y = Math.Abs((int)cell2Pos.Y - (int)cell1Pos.Y);
 				if (_x + _y == 1) {
@@ -113,12 +112,12 @@ namespace Match3 {
 
 			List<AnimationStep> _steps = new List<AnimationStep>();
 			var posTo = new Vector2(p1.Col, p1.Row);
-			_steps.Add(new AnimationStep(p1.Position, posTo * Cell.cellSize, 100f, AnimationType.eCubic));
+			_steps.Add(new AnimationStep(p1.Position, posTo * Cell.CellSize, 100f, AnimationType.eCubic));
 			map[p1.Col, p1.Row].move = new Animation(_steps);
 
 			List<AnimationStep> _steps2 = new List<AnimationStep>();
 			var posTo2 = new Vector2(p2.Col, p2.Row);
-			_steps2.Add(new AnimationStep(p2.Position, posTo2 * Cell.cellSize, 100f, AnimationType.eCubic));
+			_steps2.Add(new AnimationStep(p2.Position, posTo2 * Cell.CellSize, 100f, AnimationType.eCubic));
 			map[p2.Col, p2.Row].move = new Animation(_steps2);
 
 		}
@@ -186,7 +185,7 @@ namespace Match3 {
 					int n = 1;
 					for (int i = RowSize-2; i > 0; i--) {
 						if (map[j, i].Match) {
-							map[j, i].Position = new Vector2(j * Cell.cellSize, 0);
+							map[j, i].Position = new Vector2(j * Cell.CellSize, 0);
 							map[j, i].SetType(GetRandomCellType(), GetRandomCellTypeBonus());
 
 							map[j, i].Col = j;
@@ -202,11 +201,11 @@ namespace Match3 {
 			if (!isMove) {
 				for (int i = 1; i <= ColSize - 2; i++) {
 					for (int j = 1; j <= RowSize - 2; j++) {
-						if ((int)(map[i, j].Position.X / Cell.cellSize) != map[i, j].Col ||
-							(int)(map[i, j].Position.Y / Cell.cellSize) != map[i, j].Row) {
+						if ((int)(map[i, j].Position.X / Cell.CellSize) != map[i, j].Col ||
+							(int)(map[i, j].Position.Y / Cell.CellSize) != map[i, j].Row) {
 							List<AnimationStep> _steps = new List<AnimationStep>();
 							_steps.Add(new AnimationStep(map[i, j].Position,
-								new Vector2(map[i, j].Col * Cell.cellSize, map[i, j].Row * Cell.cellSize), 100f, AnimationType.eCubic));
+								new Vector2(map[i, j].Col * Cell.CellSize, map[i, j].Row * Cell.CellSize), 100f, AnimationType.eCubic));
 							map[i, j].move = new Animation(_steps);
 						}
 					}
@@ -262,26 +261,26 @@ namespace Match3 {
 		private void ApplyBonusAnimation(int i, int j) {
 			switch (map[i, j].TypeBonus) {
 				case TypeBonus.Bomb: {
-					map[i, j].animationBonus = new AnimationBonusBomb(new Vector2(map[i, j].Col * Cell.cellSize,
-						map[i, j].Row * Cell.cellSize));
+					map[i, j].animationBonus = new AnimationBonusBomb(new Vector2(map[i, j].Col * Cell.CellSize,
+						map[i, j].Row * Cell.CellSize));
 					map[i, j].animationBonus.Delay = delay;
 					delay += 250;
 					break;
 				}
 				case TypeBonus.Hline: {
-					map[i, j].animationBonus = new AnimationBonusLine(new Vector2(map[i, j].Col * Cell.cellSize,
-						map[i, j].Row * Cell.cellSize),
-						new Vector2(Cell.cellSize, map[i, j].Row * Cell.cellSize),
-						new Vector2(Cell.cellSize * (Match3.ColSize-1), map[i, j].Row * Cell.cellSize));
+					map[i, j].animationBonus = new AnimationBonusLine(new Vector2(map[i, j].Col * Cell.CellSize,
+						map[i, j].Row * Cell.CellSize),
+						new Vector2(Cell.CellSize, map[i, j].Row * Cell.CellSize),
+						new Vector2(Cell.CellSize * (Match3.ColSize-1), map[i, j].Row * Cell.CellSize));
 					map[i, j].animationBonus.Delay = 100;
 					//delay += 250;
 					break;
 				}
 				case TypeBonus.Vline: {
-					map[i, j].animationBonus = new AnimationBonusLine(new Vector2(map[i, j].Col * Cell.cellSize,
-						map[i, j].Row * Cell.cellSize),
-						new Vector2(map[i, j].Col * Cell.cellSize, Cell.cellSize),
-						new Vector2(map[i, j].Col * Cell.cellSize, Cell.cellSize * (Match3.RowSize - 1)));
+					map[i, j].animationBonus = new AnimationBonusLine(new Vector2(map[i, j].Col * Cell.CellSize,
+						map[i, j].Row * Cell.CellSize),
+						new Vector2(map[i, j].Col * Cell.CellSize, Cell.CellSize),
+						new Vector2(map[i, j].Col * Cell.CellSize, Cell.CellSize * (Match3.RowSize - 1)));
 					map[i, j].animationBonus.Delay = 100;
 					//delay += 250;
 					break;
@@ -292,9 +291,9 @@ namespace Match3 {
 		private void ApplyMatchAnimation(int i, int j) {
 			if (map[i, j].delmove == null && map[i, j].alpha == null) {
 				List<AnimationStep> _steps3 = new List<AnimationStep>();
-				var posTo3 = new Vector2(Game1.screenWidth - 10, 10);
-				_steps3.Add(new AnimationStep(new Vector2(map[i, j].Col * Cell.cellSize, 
-					map[i, j].Row * Cell.cellSize), posTo3, 1000f, AnimationType.eCubic));
+				var posTo3 = new Vector2(Game1.ScreenWidth - 10, 10);
+				_steps3.Add(new AnimationStep(new Vector2(map[i, j].Col * Cell.CellSize, 
+					map[i, j].Row * Cell.CellSize), posTo3, 1000f, AnimationType.eCubic));
 				map[i, j].delmove = new Animation(_steps3);
 				List<AnimationStep> _steps4 = new List<AnimationStep>();
 				var posTo4 = new Vector2(0, 0);
@@ -468,9 +467,9 @@ namespace Match3 {
 							if (map[i, j].TypeBonus == TypeBonus.Hline || map[i, j].TypeBonus == TypeBonus.Vline) {
 								var a = (AnimationBonusLine)(map[i, j].animationBonus);
 								var p1 = a.pos1;
-								Apply((int)(p1.X / Cell.cellSize), (int)(p1.Y / Cell.cellSize));
+								Apply((int)(p1.X / Cell.CellSize), (int)(p1.Y / Cell.CellSize));
 								var p2 = a.pos2;
-								Apply((int)(p2.X / Cell.cellSize), (int)(p2.Y / Cell.cellSize));
+								Apply((int)(p2.X / Cell.CellSize), (int)(p2.Y / Cell.CellSize));
 							}
 						} else {
 							if (map[i, j].TypeBonus == TypeBonus.Bomb) {

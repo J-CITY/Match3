@@ -21,7 +21,7 @@ namespace Match3 {
 			game.spriteBatch.Begin();
 
 			game.spriteBatch.Draw(game.textureBg,
-				new Rectangle(0, 0, Game1.screenWidth, Game1.screenHeight), Color.White);
+				new Rectangle(0, 0, Game1.ScreenWidth, Game1.ScreenHeight), Color.White);
 			game.spriteBatch.Draw(game.texturePlayBtn,
 				btn, Color.White);
 
@@ -37,8 +37,8 @@ namespace Match3 {
 
 		public override void Update(float delta) {
 			if (isBtnPress) {
-				Game1.screens.Pop();
-				Game1.screens.Push(new ScreenGame());
+				Game1.Screens.Pop();
+				Game1.Screens.Push(new ScreenGame());
 			}
 		}
 	}

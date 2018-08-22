@@ -23,14 +23,14 @@ namespace Match3 {
 			game.spriteBatch.Begin();
 
 			game.spriteBatch.Draw(game.textureBg,
-				new Rectangle(0, 0, Game1.screenWidth, Game1.screenHeight), Color.White);
+				new Rectangle(0, 0, Game1.ScreenWidth, Game1.ScreenHeight), Color.White);
 			game.spriteBatch.Draw(game.textureOkBtn,
 				btn, Color.White);
 
 			string scoreText = "GAME OVER! Your score: " + gameScore;
 			Vector2 size = game.font.MeasureString(scoreText);
 			game.spriteBatch.DrawString(game.font, scoreText,
-				new Vector2(Game1.screenWidth / 2 - size.X / 2, 10), Color.White);
+				new Vector2(Game1.ScreenWidth / 2 - size.X / 2, 10), Color.White);
 
 			game.spriteBatch.End();
 		}
@@ -44,8 +44,8 @@ namespace Match3 {
 
 		public override void Update(float delta) {
 			if (isBtnPress) {
-				Game1.screens.Pop();
-				Game1.screens.Push(new ScreenStartMenu(Game1.screenWidth, Game1.screenHeight));
+				Game1.Screens.Pop();
+				Game1.Screens.Push(new ScreenStartMenu(Game1.ScreenWidth, Game1.ScreenHeight));
 			}
 		}
 	}

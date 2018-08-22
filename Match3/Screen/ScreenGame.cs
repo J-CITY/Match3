@@ -18,16 +18,16 @@ namespace Match3 {
 			game.spriteBatch.Begin();
 			// draw background
 			game.spriteBatch.Draw(game.textureBg,
-				new Rectangle(0, 0, Game1.screenWidth, Game1.screenHeight), Color.White);
+				new Rectangle(0, 0, Game1.ScreenWidth, Game1.ScreenHeight), Color.White);
 
 			for (int i = 1; i < Match3.ColSize - 1; i++) {
 				for (int j = 1; j < Match3.RowSize - 1; j++) {
 					if ((i + j) % 2 == 0) {
 						game.spriteBatch.Draw(game.textureCell1,
-							new Rectangle(i * Cell.cellSize, j * Cell.cellSize, Cell.cellSize, Cell.cellSize), Color.White);
+							new Rectangle(i * Cell.CellSize, j * Cell.CellSize, Cell.CellSize, Cell.CellSize), Color.White);
 					} else {
 						game.spriteBatch.Draw(game.textureCell2,
-							new Rectangle(i * Cell.cellSize, j * Cell.cellSize, Cell.cellSize, Cell.cellSize), Color.White);
+							new Rectangle(i * Cell.CellSize, j * Cell.CellSize, Cell.CellSize, Cell.CellSize), Color.White);
 					}
 				}
 			}
@@ -36,7 +36,7 @@ namespace Match3 {
 			foreach (Vector2 v in activeCell) {
 				if (v.X != 0 && v.Y != 0) {
 					game.spriteBatch.Draw(game.textureCellActive,
-						new Rectangle((int)v.X * Cell.cellSize, (int)v.Y * Cell.cellSize, Cell.cellSize, Cell.cellSize), Color.White);
+						new Rectangle((int)v.X * Cell.CellSize, (int)v.Y * Cell.CellSize, Cell.CellSize, Cell.CellSize), Color.White);
 				}
 			}
 
@@ -88,12 +88,12 @@ namespace Match3 {
 			string scoreText = "Score: " + match3.GameScore;
 			Vector2 size = game.font.MeasureString(scoreText);
 			game.spriteBatch.DrawString(game.font, scoreText,
-				new Vector2(Game1.screenWidth - size.X - 10, 10), Color.White);
+				new Vector2(Game1.ScreenWidth - size.X - 10, 10), Color.White);
 
 			string timeText = "" + (int)(match3.GameTime / 1000);
 			size = game.font.MeasureString(timeText);
 			game.spriteBatch.DrawString(game.font, timeText,
-				new Vector2(Game1.screenWidth - 200, 200), Color.White, 0, Vector2.Zero,
+				new Vector2(Game1.ScreenWidth - 200, 200), Color.White, 0, Vector2.Zero,
 				new Vector2(2f, 2f), SpriteEffects.None, 0);
 
 			game.spriteBatch.End();
@@ -105,8 +105,8 @@ namespace Match3 {
 
 		public override void Update(float delta) {
 			if (match3.GameTime <= 0) {
-				Game1.screens.Pop();
-				Game1.screens.Push(new ScreenGameOver(Game1.screenWidth, Game1.screenHeight, match3.GameScore));
+				Game1.Screens.Pop();
+				Game1.Screens.Push(new ScreenGameOver(Game1.ScreenWidth, Game1.ScreenHeight, match3.GameScore));
 			}
 			match3.Update(delta);
 		}

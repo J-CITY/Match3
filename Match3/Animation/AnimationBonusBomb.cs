@@ -8,10 +8,10 @@ using System.Threading.Tasks;
 namespace Match3 {
 	class AnimationBonusBomb : AnimationBonus {
 		public Vector2 position;
-		public Vector2 offset = new Vector2(-Cell.cellSize, -Cell.cellSize);
+		public Vector2 offset = new Vector2(-Cell.CellSize, -Cell.CellSize);
 
 		public AnimationBonusBomb(Vector2 pos) {
-			position = pos + new Vector2(Cell.cellSize / 4, Cell.cellSize / 4);
+			position = pos + new Vector2(Cell.CellSize / 4, Cell.CellSize / 4);
 			frames.Add(new Rectangle(41, 2489, 33, 33));
 			frames.Add(new Rectangle(81, 2470, 85, 71));
 			frames.Add(new Rectangle(179, 2461, 95, 89));

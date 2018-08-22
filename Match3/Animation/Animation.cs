@@ -46,16 +46,16 @@ namespace Match3 {
 
 			switch (s.Type) {
 				case AnimationType.eLiner:
-				res = moveLinear(s.XFrom, s.XTo, s.Time, startTime);
+				res = MoveLinear(s.XFrom, s.XTo, s.Time, startTime);
 				break;
 				case AnimationType.eQuadric:
-				res = moveQuadratic(s.XFrom, s.XTo, s.Time, startTime);
+				res = MoveQuadratic(s.XFrom, s.XTo, s.Time, startTime);
 				break;
 				case AnimationType.eQuadricInv:
-				res = moveQuadraticInv(s.XFrom, s.XTo, s.Time, startTime);
+				res = MoveQuadraticInv(s.XFrom, s.XTo, s.Time, startTime);
 				break;
 				case AnimationType.eCubic:
-				res = moveCubic(s.XFrom, s.XTo, s.Time, startTime);
+				res = MoveCubic(s.XFrom, s.XTo, s.Time, startTime);
 				break;
 			}
 
@@ -71,14 +71,14 @@ namespace Match3 {
 		}
 
 		// fom X0 в X1 for T
-		private Vector2 moveLinear(Vector2 X0, Vector2 X1, float T, float t) {
+		private Vector2 MoveLinear(Vector2 X0, Vector2 X1, float T, float t) {
 			var f = t / T;
 			if (f < 0) { f = 0f; isDone = true; }
 			if (f > 1) { f = 1f; isDone = true; }
 			return X0 * (1f - f) + X1 * f;
 		}
 		
-		private Vector2 moveQuadratic(Vector2 X0, Vector2 X1, float T, float t) {
+		private Vector2 MoveQuadratic(Vector2 X0, Vector2 X1, float T, float t) {
 			var f = t / T;
 			if (f < 0) { f = 0f; isDone = true; }
 			if (f > 1) { f = 1f; isDone = true; }
@@ -86,7 +86,7 @@ namespace Match3 {
 			return X0 * (1 - f) + X1 * f;
 		}
 
-		private Vector2 moveQuadraticInv(Vector2 X0, Vector2 X1, float T, float t) {
+		private Vector2 MoveQuadraticInv(Vector2 X0, Vector2 X1, float T, float t) {
 			var f = t / T;
 			if (f < 0) { f = 0f; isDone = true; }
 			if (f > 1) { f = 1f; isDone = true; }
@@ -95,7 +95,7 @@ namespace Match3 {
 			return X0 * f + X1 * (1 - f);
 		}
 		
-		private Vector2 moveCubic(Vector2 X0, Vector2 X1, float T, float t) {
+		private Vector2 MoveCubic(Vector2 X0, Vector2 X1, float T, float t) {
 			var f = t / T;
 			if (f < 0) { f = 0f; isDone = true; }
 			if (f > 1) { f = 1f; isDone = true; }

@@ -8,8 +8,8 @@ using System.Diagnostics;
 
 namespace Match3 {
 	public class Game1 : Game {
-		public static int screenWidth = 800, screenHeight = 600;
-		public static Stack<Screen> screens = new Stack<Screen>();
+		public static int ScreenWidth = 800, ScreenHeight = 600;
+		public static Stack<Screen> Screens = new Stack<Screen>();
 
 		public SpriteBatch spriteBatch;
 		public Texture2D textureBg, textureJelly,
@@ -26,10 +26,10 @@ namespace Match3 {
 
 		protected override void Initialize() {
 			//screens.Push(new ScreenGame());
-			screens.Push(new ScreenStartMenu(Game1.screenWidth, Game1.screenHeight));
+			Screens.Push(new ScreenStartMenu(Game1.ScreenWidth, Game1.ScreenHeight));
 
-			graphics.PreferredBackBufferWidth = screenWidth;
-			graphics.PreferredBackBufferHeight = screenHeight;
+			graphics.PreferredBackBufferWidth = ScreenWidth;
+			graphics.PreferredBackBufferHeight = ScreenHeight;
 			graphics.ApplyChanges();
 			this.IsMouseVisible = true;
 			base.Initialize();
@@ -62,17 +62,17 @@ namespace Match3 {
 
 			MouseState newState = Mouse.GetState();
 			if (newState.LeftButton == ButtonState.Pressed && oldState.LeftButton == ButtonState.Released) {
-				screens.Peek().MouseClick(new Vector2(newState.X, newState.Y));
+				Screens.Peek().MouseClick(new Vector2(newState.X, newState.Y));
 			}
 			oldState = newState;
 			var delta = (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-			screens.Peek().Update(delta);
+			Screens.Peek().Update(delta);
 			base.Update(gameTime);
 		}
 
 		protected override void Draw(GameTime gameTime) {
 			GraphicsDevice.Clear(Color.CornflowerBlue);
-			screens.Peek().Draw(this);
+			Screens.Peek().Draw(this);
 			base.Draw(gameTime);
 		}
 	}

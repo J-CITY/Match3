@@ -12,7 +12,7 @@ namespace Match3 {
 	enum TypeBonus { Normal = 1, Hline, Vline, Bomb };
 
 	class Cell {
-		public static int cellSize = 55;
+		public static int CellSize = 55;
 		//move
 		public Animation move = null;
 		//delete
